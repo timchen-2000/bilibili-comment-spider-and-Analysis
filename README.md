@@ -1,6 +1,8 @@
 # B站弹幕分析工具
 这是一个用于获取、处理和分析B站视频弹幕的工具集。该项目可以爬取B站视频弹幕，进行情感分析、主题建模和高光时刻检测
 
+![B站弹幕分析](images/wordcloud.png)
+
 ### Dependencies
 ```bash
 pip install requests snownlp pyecharts jieba gensim pyLDAvis
@@ -27,12 +29,16 @@ pip install requests snownlp pyecharts jieba gensim pyLDAvis
 - 将弹幕分类为积极、消极和中性
 - 生成情感分布饼图
 
+![情感分析结果](images/emotion.png)
+
 ### 4. highlights.py
 
 视频高光时刻分析：
 - 统计不同时间点的弹幕密度
 - 生成弹幕密度随时间变化的折线图
 - 标记弹幕密度最高的时间点（可能的高光时刻）
+
+![高光时刻分析](images/highlight.png)
 
 ### 5. LDA_annly.py
 
@@ -41,6 +47,17 @@ pip install requests snownlp pyecharts jieba gensim pyLDAvis
 - 应用LDA（潜在狄利克雷分配）进行主题建模
 - 生成主题可视化HTML文件
 
+![主题建模分析](images/LDA.png)
+
+### 6. wordCloud.py
+
+弹幕词云生成：
+- 使用结巴分词处理弹幕文本
+- 过滤停用词并统计词频
+- 生成弹幕关键词的词云可视化
+
+![词云分析](images/wordcloud.png)
+
 ## Quick Start
 1. 运行`data_anlysis.py`获取弹幕数据 # 通过视频的URL进行获取
 2. 运行`processing.py`进行数据预处理
@@ -48,7 +65,8 @@ pip install requests snownlp pyecharts jieba gensim pyLDAvis
    - `emotionAnalysis.py`：情感分析
    - `highlights.py`：高光时刻检测
    - `LDA_annly.py`：主题建模分析
+   - `wordCloud.py`：词云可视化
 * `Note`: 只能爬取url为video类型的视频like：https://www.bilibili.com/video/BV18sJHz5ENR/?spm_id_from=333.934.0.0
-* `Note`: 需要准备`wordstop.txt`作为中文停用词表（用于LDA主题建模）
+* `Note`: 需要准备`wordstop.txt`作为中文停用词表（用于LDA主题建模和词云生成）
 * `Note`: 分析结果会以HTML文件形式保存在项目目录中
 
